@@ -8,7 +8,6 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.io.IOUtils;
 
-import com.google.zxing.client.j2se.MatrixToImageConfig;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.utils.QRCoder;
 
