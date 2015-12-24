@@ -1,0 +1,20 @@
+buildscript {
+    repositories {
+		maven{
+		        url "http://xx.xx.xx.xx:8081/nexus/content/groups/public"
+		}
+    }
+    dependencies {
+        classpath group: 'com.gutils', name: 'qrcode',
+                version: '1.1'
+    }
+}
+apply plugin: 'com.gutils.qrcode'
+
+qrcode{
+    contentRegex "http://www.gutils.com/*.html"
+    channels "a","b","c"
+    width 200
+    //logo file('/Users/hyxf/Desktop/logo.png')
+    //logoCent 4
+}

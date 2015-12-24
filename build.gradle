@@ -1,0 +1,27 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+    compile 'com.google.zxing:core:3.2.1'
+    compile 'commons-io:commons-io:2.4'
+}
+
+uploadArchives {
+    repositories.mavenDeployer {
+        name = 'AARDeployer'
+        repository(url: getProperty('MAVEN_URL')) {
+            authentication(userName: getProperty('MAVEN_USER'), password: getProperty('MAVEN_PASS'))
+        }
+        pom.version = '1.2'
+        pom.artifactId = "qrcode"
+        pom.groupId = "com.gutils"
+        pom.name = "qrcode"
+        pom.packaging = 'jar'
+    }
+}
